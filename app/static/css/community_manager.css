@@ -1,0 +1,70 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 76px;
+}
+
+.u-section-1 .u-table-1 {
+  width: 1098px;
+  margin: 15px auto;
+}
+
+.u-block-244f-19 {
+  height: 47px;
+}
+
+.u-section-1 .u-table-body-1 {
+  font-family: Purista-SemiBold;
+  font-size: 0.875rem;
+}
+
+.u-section-1 .u-table-cell-1 {
+  font-family: Purista-SemiBold;
+  font-size: 0.875rem;
+}
+
+.u-section-1 .u-table-cell-2 {
+  font-family: Purista-SemiBold;
+  font-size: 0.875rem;
+}
+
+.u-section-1 .u-table-cell-3 {
+  font-family: Purista-SemiBold;
+  font-size: 0.875rem;
+}
+
+.u-section-1 .u-table-cell-4 {
+  font-family: Purista-SemiBold;
+  font-size: 0.875rem;
+}
+
+.u-block-244f-54 {
+  height: 46px;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-table-1 {
+    width: 940px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-table-1 {
+    width: 720px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-table-1 {
+    width: 540px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-table-1 {
+    width: 340px;
+  }
+}@font-face {
+  font-family: 'Purista-SemiBold';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/static/fonts/Purista-SemiBold.ttf);
+}

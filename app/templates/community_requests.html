@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <title>Community Requests</title>
+      <link rel="stylesheet" href="/static/css/nicepage.css" media="screen">
+      <link rel="stylesheet" href="/static/css/community_requests.css" media="screen">
+      <script class="u-script" type="text/javascript" src="/static/js/jquery.js"></script>
+      <script class="u-script" type="text/javascript" src="/static/js/nicepage.js"></script>
+      <link rel="icon" href="/static/images/favicon.ico">
+      <meta name="theme-color" content="#478ac9">
+      <meta property="og:title" content="community_requests">
+      <meta property="og:description" content="">
+      <meta property="og:type" content="website">
+   </head>
+   <body class="u-body u-xl-mode" data-lang="en">
+      <header class="u-black u-clearfix u-header u-header" id="sec-d671">
+         <div class="u-clearfix u-sheet u-sheet-1">
+            <p class="u-align-left u-custom-font u-text u-text-body-alt-color u-text-1">
+               <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-alt-color u-btn-1" href="{{url_for('home')}}" data-page-id="89717531">MEDCOM</a>
+            </p>
+            {% include 'navbar.html' %}
+         </div>
+      </header>
+      <section class="u-black u-clearfix u-section-1" id="sec-a2fc">
+         <div class="u-align-left u-clearfix u-sheet u-sheet-1">
+            <div class="u-align-left u-border-2 u-border-grey-50 u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-radius-11 u-shape-round u-group-1">
+               <div class="u-container-layout u-container-layout-1">
+                  <h4 class="u-custom-font u-text u-text-1"> Search Event</h4>
+                  <div class="u-form u-form-1">
+                     <form action="#" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="email" name="REGISTER" style="padding: 10px;">
+                        <div class="u-form-email u-form-group u-form-group-1">
+                           <label for="email-8f4e" class="u-custom-font u-label u-label-1">Input</label>
+                           <input type="text" placeholder="Event ID" id="email-8f4e" name="event_id" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-1" required="" maxlength="100">
+                        </div>
+                        <div class="u-align-left u-form-group u-form-submit">
+                           <a href="#" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-btn-1">Search<br>
+                           </a>
+                           <input type="submit" value="submit" class="u-form-control-hidden">
+                        </div>
+                        <div class="u-form-send-message u-form-send-success" id="success_message"></div>
+                        <div class="u-form-send-error u-form-send-message" id="error_message"></div>
+                     </form>
+                  </div>
+                  <p class="u-align-center u-custom-font u-text u-text-2"> If there is data about the entered result, it will transfer you to that page.</p>
+               </div>
+            </div>
+            <div class="u-align-left u-border-2 u-border-grey-50 u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-radius-11 u-shape-round u-group-2">
+               <div class="u-container-layout u-valign-bottom-sm u-container-layout-2">
+                  <h4 class="u-custom-font u-text u-text-3">Requested Events</h4>
+                  <div class="black border border-collapse border-radius px separate solid table u-align-center u-table u-table-responsive u-table-1">
+                     <table class="u-table-entity">
+                        <colgroup>
+                           <col width="30%">
+                           <col width="45%">
+                           <col width="10%">
+                           <col width="15%">
+                        </colgroup>
+                        <tbody class="u-custom-font u-table-alt-custom-color-2 u-table-body u-table-body-1">
+                           {% for community in communities %}
+                          <tr style="height: 43px;">
+                              <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-1"><a href="{{url_for('dashboard_admin_community_manager', page='@'+community['_id'])}}">{{ community['_id'] }}</a></td>
+                              <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-2">{{ community['name']|title }}</td>
+                              <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-2">Community</td>
+                              <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-3">{{ community['status']|title }}</td>
+                          </tr>
+                          {% endfor %}
+                          {% for event in events %}
+                          <tr style="height: 43px;">
+                              <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-1"><a href="{{url_for('community_event', event_id=event['_id'])}}">{{ event['_id'] }}</a></td>
+                              <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-2">{{ event['event_name'] }}</td>
+                              <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-2">Event</td>
+                              <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-3">{{ event['status']|title }}</td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <footer class="u-align-center u-black u-clearfix u-footer u-footer" id="sec-7d01">
+         <div class="u-align-left u-clearfix u-sheet u-sheet-1"></div>
+      </footer>
+   </body>
+</html>

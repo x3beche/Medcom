@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <title>User Info</title>
+      <link rel="stylesheet" href="/static/css/nicepage.css" media="screen">
+      <link rel="stylesheet" href="/static/css/user_info.css" media="screen">
+      <script class="u-script" type="text/javascript" src="/static/js/jquery.js" defer=""></script>
+      <script class="u-script" type="text/javascript" src="/static/js/nicepage_admin.js" defer=""></script>
+      <link rel="icon" href="/static/images/favicon.ico">
+      <meta name="theme-color" content="#478ac9">
+      <meta property="og:title" content="user_info">
+      <meta property="og:description" content="">
+      <meta property="og:type" content="website">
+   </head>
+   <body class="u-body u-xl-mode" data-lang="en">
+      <header class="u-black u-clearfix u-header u-header" id="sec-d671">
+         <div class="u-clearfix u-sheet u-sheet-1">
+            <p class="u-align-left u-custom-font u-text u-text-body-alt-color u-text-1">
+               <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-alt-color u-btn-1" href="{{url_for('home')}}" data-page-id="89717531">MEDCOM</a>
+            </p>
+            {% include 'navbar.html' %}
+         </div>
+      </header>
+      <section class="u-black u-clearfix u-section-1" id="sec-4bf0">
+         <div class="u-clearfix u-sheet u-sheet-1">
+            <div class="u-clearfix u-gutter-28 u-layout-wrap u-layout-wrap-1">
+               <div class="u-layout">
+                  <div class="u-layout-row">
+                     <div class="u-size-29-xl u-size-31-sm u-size-31-xs u-size-34-lg u-size-60-md">
+                        <div class="u-layout-col">
+                           <div class="u-size-40">
+                              <div class="u-layout-row">
+                                 <div class="u-container-style u-layout-cell u-radius-5 u-shape-round u-size-60 u-layout-cell-1">
+                                    <div class="u-border-2 u-border-grey-50 u-container-layout u-container-layout-1">
+                                       <h5 class="u-align-right u-custom-font u-text u-text-1">{{ user['level'] }}</h5>
+                                       <p class="u-align-left u-custom-font u-text u-text-2">
+                                          <span class="u-text-custom-color-3">First Name : </span>{{ user['first_name'] }}<br>
+                                          <span class="u-text-custom-color-3">Last Name : </span>{{ user['last_name'] }}<br>
+                                          <span class="u-text-custom-color-3">Mail :</span> {{ user['email'] }}<br>
+                                          <span class="u-text-custom-color-3">Signup Date : </span>{{ user['registration_date'] }}<br>
+                                          <span class="u-text-custom-color-3">Last Login : </span>{{ user['last_login'] }}<br>
+                                          <span class="u-text-custom-color-3">User Id : </span>{{ user['_id'] }}<br>
+                                          <span class="u-text-custom-color-3">Verification : </span>{{ user['verification'] }}<br>
+                                          <span class="u-text-custom-color-3">Status : </span>{{ user['status']|title }}<br>
+                                          <span class="u-text-custom-color-3">Communities : </span><br>
+                                          <span class="u-text-custom-color-3">Communities Managing : </span>
+                                       </p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="u-size-20">
+                              <div class="u-layout-row">
+                                 <div class="u-container-style u-layout-cell u-radius-5 u-shape-round u-size-30 u-layout-cell-2">
+                                    <div class="u-border-2 u-border-grey-50 u-container-layout u-container-layout-2">
+                                       <h5 class="u-align-left u-custom-font u-text u-text-default u-text-3">Last Event</h5>
+                                       <p class="u-custom-font u-text u-text-custom-color-5 u-text-4">
+                                          <span class="u-text-white">
+                                          <span class="u-text-custom-color-5" style="font-size: 1.125rem;">Ip : </span>{{ user['log'][-1]['ip'] }}<br>
+                                          <span class="u-text-custom-color-5" style="font-size: 1.125rem;">Type : </span>{{ user['log'][-1]['event'] }}<br>
+                                          <span class="u-text-custom-color-5" style="font-size: 1.125rem;">Date : </span>{{ user['log'][-1]['date'] }}<br>
+                                          <span class="u-text-custom-color-5" style="font-weight: 700; font-size: 1.125rem;">User Agent : </span>{{ user['log'][-1]['user_agent'] }}
+                                          </span>
+                                          <br>
+                                       </p>
+                                    </div>
+                                 </div>
+                                 <div class="u-container-style u-layout-cell u-radius-5 u-shape-round u-size-30 u-layout-cell-3">
+                                    <div class="u-border-2 u-border-grey-50 u-container-layout u-container-layout-3">
+                                       <h5 class="u-align-left u-custom-font u-text u-text-default u-text-5">Role Manager</h5>
+                                       <div class="u-form u-form-1">
+                                          <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;">
+                                            <input type="hidden" name="type" value="user_operations"> 
+                                            <input type="hidden" name="operation" value="set_role_member"> 
+                                            <div class="u-align-left u-form-group u-form-submit u-form-group-1">
+                                                <a href="#" class="u-black u-border-2 u-border-grey-50 u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-btn-1">Set Role Member<br>
+                                                </a>
+                                                <input type="submit" value="submit" class="u-form-control-hidden">
+                                             </div>
+                                             <div class="u-form-send-message u-form-send-success" id="success_message-1"></div>
+                                             <div class="u-form-send-message u-form-send-error" id="error_message-1"></div>
+                                              
+                                          </form>
+                                       </div>
+                                       <div class="u-form u-form-2">
+                                          <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;">
+                                             <input type="hidden" name="type" value="user_operations"> 
+                                             <input type="hidden" name="operation" value="set_role_community">
+                                             <div class="u-align-left u-form-group u-form-submit u-label-none u-form-group-2">
+                                                <input type="submit" value="submit" class="u-form-control-hidden">
+                                                <a href="#" class="u-black u-border-2 u-border-grey-50 u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-btn-2">Set Role Community&nbsp; &nbsp;<br>
+                                                </a>
+                                             </div>
+                                             <div class="u-form-send-message u-form-send-success" id="success_message-2"></div>
+                                             <div class="u-form-send-message u-form-send-error" id="error_message-2"></div>
+                                              
+                                          </form>
+                                       </div>
+                                       <div class="u-form u-form-3">
+                                          <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;">
+                                            <input type="hidden" name="type" value="user_operations"> 
+                                            <input type="hidden" name="operation" value="set_role_supervisor"> 
+                                            <div class="u-align-left u-form-group u-form-submit u-form-group-3">
+                                                <a href="#" class="u-black u-border-2 u-border-grey-50 u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-btn-3">Set Role Supervisor&nbsp;<br>
+                                                </a>
+                                                <input type="submit" value="submit" class="u-form-control-hidden">
+                                             </div>
+                                             <div class="u-form-send-message u-form-send-success" id="success_message-3"></div>
+                                             <div class="u-form-send-message u-form-send-error" id="error_message-3"></div>
+                                              
+                                          </form>
+                                       </div>
+                                       <div class="u-form u-form-4">
+                                          <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;">
+                                            <input type="hidden" name="type" value="user_operations"> 
+                                            <input type="hidden" name="operation" value="set_role_admin"> 
+                                            <div class="u-align-right u-form-group u-form-submit u-form-group-4">
+                                                <a href="#" class="u-black u-border-2 u-border-grey-50 u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-btn-4">Set Role Admin<br>
+                                                </a>
+                                                <input type="submit" value="submit" class="u-form-control-hidden">
+                                             </div>
+                                             <div class="u-form-send-message u-form-send-success" id="success_message-4"></div>
+                                             <div class="u-form-send-message u-form-send-error" id="error_message-4"></div>
+                                              
+                                          </form>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="u-size-26-lg u-size-29-sm u-size-29-xs u-size-31-xl u-size-60-md">
+                        <div class="u-layout-col">
+                           <div class="u-container-style u-hover-feature u-layout-cell u-radius-5 u-shape-round u-size-20 u-layout-cell-4">
+                              <div class="u-border-2 u-border-grey-50 u-container-layout u-container-layout-4">
+                                 <h5 class="u-align-left u-custom-font u-hover-feature u-text u-text-default u-text-6">User Note :</h5>
+                                 <p class="u-custom-font u-text u-text-7">{{user['note']}}</p>
+                                 <div class="u-form u-form-5">
+                                    <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;">
+                                        <input type="hidden" name="type" value="user_operations"> 
+                                        <input type="hidden" name="operation" value="change_note">
+                                        <div class="u-form-group u-form-group-5">
+                                          <label for="text-7ea7" class="u-custom-font u-label u-label-1">User Note</label>
+                                          <input type="text" placeholder="" id="text-7ea7" name="note" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-1">
+                                       </div>
+                                       <div class="u-align-left u-form-group u-form-submit u-form-group-6">
+                                          <a href="#" class="u-black u-border-2 u-border-grey-50 u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-btn-5">Change Note<br>
+                                          </a>
+                                          <input type="submit" value="submit" class="u-form-control-hidden">
+                                       </div>
+                                       <div class="u-form-send-message u-form-send-success" id="success_message-5"></div>
+                                       <div class="u-form-send-message u-form-send-error" id="error_message-5"></div>
+                                        
+                                    </form>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="u-container-style u-layout-cell u-radius-5 u-shape-round u-size-40 u-layout-cell-5">
+                              <div class="u-border-2 u-border-grey-50 u-container-layout u-container-layout-5">
+                                 <h5 class="u-align-left u-custom-font u-text u-text-default u-text-8">Actions</h5>
+                                 <div class="u-form u-form-6">
+                                    <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;">
+                                        <input type="hidden" name="type" value="user_operations"> 
+                                        <input type="hidden" name="operation" value="send_email_verification"> 
+                                        <div class="u-align-left u-form-group u-form-submit u-form-group-7">
+                                          <a href="#" class="u-black u-border-2 u-border-grey-50 u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-btn-6"> Send Email Verification<br>
+                                          </a>
+                                          <input type="submit" value="submit" class="u-form-control-hidden">
+                                       </div>
+                                       <div class="u-form-send-message u-form-send-success" id="success_message-6"></div>
+                                       <div class="u-form-send-message u-form-send-error" id="error_message-6"></div>
+                                        
+                                    </form>
+                                 </div>
+                                 <div class="u-form u-form-7">
+                                    <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;">
+                                        <input type="hidden" name="type" value="user_operations"> 
+                                        <input type="hidden" name="operation" value="verify_mail"> 
+                                        <div class="u-align-center-xs u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xl u-form-group u-form-submit u-form-group-8">
+                                          <a href="#" class="u-black u-border-2 u-border-grey-50 u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-btn-7"> Verify Mail<br>
+                                          </a>
+                                          <input type="submit" value="submit" class="u-form-control-hidden">
+                                       </div>
+                                       <div class="u-form-send-message u-form-send-success" id="success_message-7"></div>
+                                       <div class="u-form-send-message u-form-send-error" id="error_message-7"></div>
+                                        
+                                    </form>
+                                 </div>
+                                 <div class="u-form u-form-8">
+                                    <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;">
+                                        <input type="hidden" name="type" value="user_operations"> 
+                                        <input type="hidden" name="operation" value="send_password_request"> 
+                                        <div class="u-align-left u-form-group u-form-submit u-form-group-9">
+                                          <a href="#" class="u-black u-border-2 u-border-grey-50 u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-btn-8"> Send Password Reset&nbsp;&nbsp;<br>
+                                          </a>
+                                          <input type="submit" value="submit" class="u-form-control-hidden">
+                                       </div>
+                                       <div class="u-form-send-message u-form-send-success" id="success_message-8"></div>
+                                       <div class="u-form-send-message u-form-send-error" id="error_message-8"></div>
+                                        
+                                    </form>
+                                 </div>
+                                 <div class="u-form u-form-9">
+                                    <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;">
+                                        <input type="hidden" name="type" value="user_operations"> 
+                                        <input type="hidden" name="operation" value="delete_user"> 
+                                        <div class="u-align-left u-form-group u-form-submit u-form-group-10">
+                                          <a href="#" class="u-black u-border-2 u-border-grey-50 u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-text-active-custom-color-4 u-text-custom-color-4 u-text-hover-custom-color-4 u-btn-9">Delete ​User</a>
+                                          <input type="submit" value="submit" class="u-form-control-hidden">
+                                       </div>
+                                       <div class="u-form-send-message u-form-send-success" id="success_message-9"></div>
+                                       <div class="u-form-send-message u-form-send-error" id="error_message-9"></div>
+                                        
+                                    </form>
+                                 </div>
+                                 <div class="u-form u-form-10">
+                                    <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;">
+                                        <input type="hidden" name="type" value="user_operations"> 
+                                        <input type="hidden" name="operation" value="suspend_user"> 
+                                        <div class="u-align-left u-form-group u-form-submit u-form-group-11">
+                                          <a href="#" class="u-black u-border-2 u-border-grey-50 u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-text-active-custom-color-4 u-text-custom-color-4 u-text-hover-custom-color-4 u-btn-10">Suspend User</a>
+                                          <input type="submit" value="submit" class="u-form-control-hidden">
+                                       </div>
+                                       <div class="u-form-send-message u-form-send-success" id="success_message-10"></div>
+                                       <div class="u-form-send-message u-form-send-error" id="error_message-10"></div>
+                                        
+                                    </form>
+                                 </div>
+                                 <div class="u-form u-form-11">
+                                    <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;">
+                                        <input type="hidden" name="type" value="user_operations"> 
+                                        <input type="hidden" name="operation" value="activate_user"> 
+                                        <div class="u-align-left u-form-group u-form-submit u-form-group-12">
+                                          <a href="#" class="u-black u-border-2 u-border-grey-50 u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-text-active-black u-text-hover-black u-text-white u-btn-11">Activate User</a>
+                                          <input type="submit" value="submit" class="u-form-control-hidden">
+                                       </div>
+                                       <div class="u-form-send-message u-form-send-success" id="success_message-11"></div>
+                                       <div class="u-form-send-message u-form-send-error" id="error_message-11"></div>
+                                        
+                                    </form>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <footer class="u-align-center u-black u-clearfix u-footer u-footer" id="sec-7d01">
+         <div class="u-align-left u-clearfix u-sheet u-sheet-1"></div>
+      </footer>
+   </body>
+</html>

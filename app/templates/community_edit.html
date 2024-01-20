@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <title>Community Edit</title>
+      <link rel="stylesheet" href="/static/css/nicepage.css" media="screen">
+      <link rel="stylesheet" href="/static/css/community_edit.css" media="screen">
+      <script class="u-script" type="text/javascript" src="/static/js/jquery.js"></script>
+      <script class="u-script" type="text/javascript" src="/static/js/nicepage_admin.js"></script>
+      <link rel="icon" href="/static/images/favicon.ico">
+      <meta name="theme-color" content="#478ac9">
+      <meta property="og:title" content="community_edit">
+      <meta property="og:description" content="">
+      <meta property="og:type" content="website">
+   </head>
+   <body class="u-body u-xl-mode" data-lang="en">
+      <header class="u-black u-clearfix u-header u-header" id="sec-d671">
+         <div class="u-clearfix u-sheet u-sheet-1">
+            <p class="u-align-left u-custom-font u-text u-text-body-alt-color u-text-1">
+               <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-alt-color u-btn-1" href="{{url_for('home')}}" data-page-id="89717531">MEDCOM</a>
+            </p>
+            {% include 'navbar.html' %}
+         </div>
+      </header>
+      <section class="u-black u-clearfix u-section-1" id="sec-b8b2">
+         <div class="u-align-left u-clearfix u-sheet u-valign-middle-sm u-valign-top-xs u-sheet-1">
+            <div class="u-align-left u-border-2 u-border-grey-50 u-container-style u-expanded-width-sm u-expanded-width-xs u-group u-radius-11 u-shape-round u-group-1">
+               <div class="u-container-layout u-valign-bottom-md u-valign-bottom-sm u-container-layout-1">
+                  <div class="u-align-center u-form u-form-1">
+                     <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;">
+                        {% if session['user']['level'] == 2 %}
+                        <input type="hidden" name="operation" value="approve_community">   
+                        {% else %}
+                        <input type="hidden" name="operation" value="edit_community">
+                        {% endif %}
+                      <div class="u-form-group u-form-partition-factor-2 u-form-group-1">
+                         <label for="text-59a6" class="u-custom-font u-label u-label-1">Community Name</label>
+                         <input type="text" value="{{ community['name'] }}" placeholder="" id="text-59a6" name="community_name" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-1" required="required" {% if session['user']['level'] == 2 %}readonly{% endif %}>
+                      </div>
+                      <div class="u-form-group u-form-partition-factor-2 u-form-group-2">
+                         <label for="text-97c6" class="u-custom-font u-label u-label-2">Department &amp; Area</label>
+                         <input type="text" value="{{ community['department'] }}" placeholder="" id="text-97c6" name="community_department" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-2" {% if session['user']['level'] == 2 %}readonly{% endif %}>
+                      </div>
+                      <div class="u-form-group u-form-message u-form-group-3">
+                         <label for="message-744e" class="u-custom-font u-label u-label-3">Community Description</label>
+                         <textarea placeholder="Write a description about the event" rows="4" cols="50" id="message-744e" name="community_description" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-3" required="required" {% if session['user']['level'] == 2 %}readonly{% endif %}>{{ community['description'] }}</textarea>
+                      </div>
+                      <div class="u-form-email u-form-group u-form-group-4">
+                         <label for="email-96aa" class="u-custom-font u-label u-label-4">Communication Mail</label>
+                         <input type="email" value="{{ community['communication'] }}" placeholder="Enter a valid email address" id="email-96aa" name="email" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-4" required="required" {% if session['user']['level'] == 2 %}readonly{% endif %}>
+                      </div>
+                        <div class="u-form-group u-form-group-5">
+                           <label for="text-3ec6" class="u-custom-font u-label u-label-5">Website</label>
+                           <input value="{{ community['website'] }}" type="text" id="text-3ec6" name="community_website" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-5" required="required" {% if session['user']['level'] == 2 %}readonly{% endif %}>
+                        </div>
+                        <div class="u-form-group u-form-group-6">
+                           <label for="text-0616" class="u-custom-font u-label u-label-6">Social Media</label>
+                           <input value="{{ community['social_media'] }}" type="text" placeholder="" id="text-0616" name="community_social_media" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-6" required="required" {% if session['user']['level'] == 2 %}readonly{% endif %}>
+                        </div>
+                        <div class="u-align-left u-form-group u-form-submit u-form-group-7">
+                          {% if session['user']['level'] == 3 %}
+                          <a href="#" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-btn-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Publish&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br></a>
+                          {% elif session['user']['level'] == 2 %}
+                          <a href="#" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-btn-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Approve&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br></a>
+                          {% elif session['user']['level'] == 1 %}
+                          <a href="#" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-btn-1"> Send to Supervisor<br></a>
+                          {% endif %}
+                           <input type="submit" value="submit" class="u-form-control-hidden">
+                        </div>
+                        <div class="u-form-send-message u-form-send-success" id="success_message-1"></div>
+                        <div class="u-form-send-error u-form-send-message" id="error_message-1"></div>
+                     </form>
+                  </div>
+                  <div class="u-form u-form-2">
+                     <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;">
+                        <div class="u-align-right u-form-group u-form-submit u-form-group-8">
+                           {% if session['user']['level'] == 2 %}
+                              <input type="hidden" name="operation" value="decline_community"> 
+                              <a href="#" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-text-custom-color-4 u-text-hover-custom-color-4 u-btn-2">Decline<br>
+                           {% elif session['user']['level'] == 3 %}
+                              <input type="hidden" name="operation" value="delete_community">
+                              <a href="#" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-text-custom-color-4 u-text-hover-custom-color-4 u-btn-2">Delete Community<br>
+                           {% endif %}
+                           </a>
+                           <input type="submit" value="submit" class="u-form-control-hidden">
+                        </div>
+                        <div class="u-form-send-message u-form-send-success" id="success_message-2"></div>
+                        <div class="u-form-send-error u-form-send-message" id="error_message-2"></div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+            <div class="u-align-left u-border-2 u-border-grey-50 u-container-style u-expanded-width-sm u-expanded-width-xs u-group u-radius-11 u-shape-round u-group-2">
+               <div class="u-container-layout u-container-layout-2">
+                <p class="u-align-left u-custom-font u-text u-text-1">
+                  <span class="u-text-custom-color-3">Community Status :</span> {{ community['status']|title}}<br>
+                  <span class="u-text-custom-color-3">Registration Status :</span> {{ community['registration_status']|title }}<br>
+                  <span class="u-text-custom-color-3">Total Managers :</span> {{managers|length}}<br>
+                  <span class="u-text-custom-color-3">Total Members :</span> {{subscribers|length}}<br>
+               </p>
+                  <div class="u-form u-form-3">
+                    <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;" {% if session['user']['level'] == 2 %}disabled{% endif %}>
+                      <input type="hidden" name="operation" value="close_registrations">
+                      <div class="u-align-right u-form-group u-form-submit u-form-group-6">
+                         <a href="#" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-text-custom-color-4 u-text-hover-custom-color-4 u-btn-2"> Close to New Registers<br>
+                         </a>
+                         <input type="submit" value="submit" class="u-form-control-hidden" {% if session['user']['level'] == 2 %}disabled{% endif %}>
+                      </div>
+                      <div class="u-form-send-message u-form-send-success" id="success_message-3"></div>
+                      <div class="u-form-send-error u-form-send-message" id="error_message-3"></div>
+                   </form>
+                  </div>
+                  <div class="u-form u-form-4">
+                    <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;" {% if session['user']['level'] == 2 %}disabled{% endif %}>
+                      <input type="hidden" name="operation" value="open_registrations">
+                      <div class="u-align-right u-form-group u-form-submit u-form-group-7">
+                         <a href="#" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-text-hover-black u-text-white u-btn-3"> Open to New Registers (default)<br>
+                         </a>
+                         <input type="submit" value="submit" class="u-form-control-hidden" {% if session['user']['level'] == 2 %}disabled{% endif %}>
+                      </div>
+                      <div class="u-form-send-message u-form-send-success" id="success_message-4"></div>
+                      <div class="u-form-send-error u-form-send-message" id="error_message-4"></div>
+                   </form>
+                  </div>
+                  <div class="u-form u-form-5">
+                    <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;" {% if session['user']['level'] == 2 %}disabled{% endif %}>
+                      <input type="hidden" name="operation" value="activate_community">
+                      <div class="u-align-right u-form-group u-form-submit u-form-group-8">
+                         <a href="#" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-text-hover-black u-text-white u-btn-3">Activate Community<br>
+                         </a>
+                         <input type="submit" value="submit" class="u-form-control-hidden" {% if session['user']['level'] == 2 %}disabled{% endif %}>
+                      </div>
+                      <div class="u-form-send-message u-form-send-success" id="success_message-5"></div>
+                      <div class="u-form-send-error u-form-send-message" id="error_message-5"></div>
+                   </form>
+                  </div>
+                  <div class="u-form u-form-6">
+                    <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;" {% if session['user']['level'] == 2 %}disabled{% endif %}>
+                      <input type="hidden" name="operation" value="archive_community">
+                      <div class="u-align-right u-form-group u-form-submit u-form-group-9">
+                         <a href="#" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-text-custom-color-4 u-text-hover-custom-color-4 u-btn-5">Archive Community<br>
+                         </a>
+                         <input type="submit" value="submit" class="u-form-control-hidden" {% if session['user']['level'] == 2 %}disabled{% endif %}>
+                      </div>
+                      <div class="u-form-send-message u-form-send-success" id="success_message-6"></div>
+                      <div class="u-form-send-error u-form-send-message" id="error_message-6"></div>
+                   </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      
+      <section class="u-black u-clearfix u-section-2" id="sec-a241">
+         <div class="u-clearfix u-sheet u-valign-middle-sm u-valign-middle-xs u-sheet-1">
+            <p class="u-custom-font u-text u-text-default u-text-1"> Managers :&nbsp;</p>
+            <div class="black border border-collapse border-radius px separate solid table u-align-center u-table u-table-responsive u-table-1">
+              <table class="u-table-entity">
+                <colgroup>
+                   <col width="25.1%">
+                   <col width="25%">
+                   <col width="25.1%">
+                   <col width="24.8%">
+                </colgroup>
+                <tbody class="u-custom-font u-table-alt-custom-color-2 u-table-body u-table-body-1">
+                   {% for user in managers %}
+                   <tr style="height: 26px;">
+                      <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-1">{{user['first_name']}}, {{user['last_name']}}</td>
+                      <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-2">{{user['email']}}</td>
+                      <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-3">{{user['status']|title}}</td>
+                      <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-3"><a href="@{{user['_id']}}"></td>
+                   </tr>
+                   {% endfor %} 
+                </tbody>
+             </table>
+            </div>
+         </div>
+      </section>
+      
+      {% if subscribers %}
+      <section class="u-black u-clearfix u-section-3" id="carousel_f2ae">
+         <div class="u-clearfix u-sheet u-sheet-1">
+            <p class="u-custom-font u-text u-text-default u-text-1"> Members :&nbsp;</p>
+            <div class="black border border-collapse border-radius px separate solid table u-align-center-xl u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-table u-table-responsive u-table-1">
+              <table class="u-table-entity">
+                <colgroup>
+                   <col width="25.1%">
+                   <col width="25%">
+                   <col width="25.1%">
+                   <col width="24.8%">
+                </colgroup>
+                <tbody class="u-custom-font u-table-alt-custom-color-2 u-table-body u-table-body-1">
+                   {% for user in subscribers %}
+                   <tr style="height: 26px;">
+                      <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-1">{{user['first_name']}}, {{user['last_name']}}</td>
+                      <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-2">{{user['email']}}</td>
+                      <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-3">{{user['status']|title}}</td>
+                      <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-3"><a href="/dashboard/community_user_management/{{community['_id']}}/{{user['_id']}}">Remove User From Community</td>
+                   </tr>
+                   {% endfor %} 
+                </tbody>
+             </table>
+            </div>
+         </div>
+      </section>
+      {% endif %}
+
+      {% if community['events'] %}
+      <section class="u-black u-clearfix u-section-3" id="carousel_f2ae">
+        <div class="u-clearfix u-sheet u-sheet-1">
+           <p class="u-custom-font u-text u-text-default u-text-1"> Events :&nbsp;</p>
+           <div class="black border border-collapse border-radius px separate solid table u-align-center-xl u-expanded-width-sm u-expanded-width-xs u-table u-table-responsive u-table-1">
+              <table class="u-table-entity">
+                 <colgroup>
+                    <col width="25%">
+                    <col width="60%">
+                    <col width="15%">
+                 </colgroup>
+                 <tbody class="u-custom-font u-table-alt-custom-color-2 u-table-body u-table-body-1">
+                    {% for event in community['events'] %}
+                    <tr style="height: 26px;">
+                       <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-1"><a href="{{ url_for('community_event', event_id=event['_id']) }}">{{ event['_id'] }}</a></td>
+                       <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-2">{{ event['event_name'] }}</td>
+                       <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-3">{{ event['status']|title }}</td>
+                    </tr>
+                    {% endfor %} 
+                 </tbody>
+              </table>
+           </div>
+        </div>
+      </section>
+      {% endif %}
+
+      <footer class="u-align-center u-black u-clearfix u-footer u-footer" id="sec-7d01">
+         <div class="u-align-left u-clearfix u-sheet u-sheet-1"></div>
+      </footer>
+   </body>
+</html>

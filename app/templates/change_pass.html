@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <title>MEDCOM Change Password</title>
+      <link rel="stylesheet" href="/static/css/nicepage.css" media="screen">
+      <link rel="stylesheet" href="/static/css/change_pass.css" media="screen">
+      <script class="u-script" type="text/javascript" src="/static/js/jquery.js" defer=""></script>
+      <script class="u-script" type="text/javascript" src="/static/js/nicepage.js" defer=""></script>
+      <link rel="icon" href="/static/images/favicon.ico">
+      <meta name="theme-color" content="#478ac9">
+      <meta property="og:title" content="change_pass">
+      <meta property="og:description" content="">
+      <meta property="og:type" content="website">
+   </head>
+   <body class="u-body u-xl-mode" data-lang="en">
+      <header class="u-black u-clearfix u-header u-header" id="sec-d671">
+         <div class="u-clearfix u-sheet u-sheet-1">
+            <p class="u-align-left u-custom-font u-text u-text-body-alt-color u-text-1">
+               <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-alt-color u-btn-1" href="{{url_for('home')}}" data-page-id="89717531">MEDCOM</a>
+            </p>
+            {% include 'navbar.html' %}
+         </div>
+      </header>
+      <section class="u-black u-clearfix u-section-1" id="sec-8fdc">
+         <div class="u-align-left u-clearfix u-sheet u-sheet-1">
+            <div class="u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-md u-align-left-xl u-border-2 u-border-grey-50 u-container-style u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-radius-11 u-shape-round u-group-1">
+               <div class="u-container-layout u-container-layout-1">
+                  <h4 class="u-custom-font u-text u-text-1">Password Change Area</h4>
+                  <div class="u-form u-form-1">
+                     <form class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="change_password" style="padding: 10px;">
+                        <div class="u-form-email u-form-group u-form-group-1">
+                           <label for="email-8f4e" class="u-custom-font u-label u-label-1">Password</label>
+                           <input type="password" placeholder="" id="email-8f4e" name="pass1" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-1" required="" maxlength="100">
+                        </div>
+                        <div class="u-form-group u-form-group-2">
+                           <label for="text-7ea7" class="u-custom-font u-label u-label-2">Confirm Password</label>
+                           <input type="password" placeholder="" id="text-7ea7" name="pass2" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-2">
+                        </div>
+                        <div class="u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-md u-align-left-xl u-form-group u-form-submit">
+                           <a href="#" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-btn-1">Submit<br>
+                           </a>
+                           <input type="submit" value="submit" class="u-form-control-hidden">
+                        </div>
+                        <div class="u-form-send-message u-form-send-success" id="success_message">Confirm</div>
+                        <div class="u-form-send-error u-form-send-message" id="error_message">Error</div>
+                     </form>
+                  </div>
+                  <p class="u-align-center-lg u-align-center-md u-align-center-xl u-custom-font u-text u-text-2"> We will change your password, if this happens very often, we recommend that you have the <span class="u-text-custom-color-3">B12 </span>value checked in your blood values.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </section>
+      <footer class="u-align-center u-black u-clearfix u-footer u-footer" id="sec-7d01">
+         <div class="u-align-left u-clearfix u-sheet u-sheet-1"></div>
+      </footer>
+   </body>
+</html>

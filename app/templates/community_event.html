@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <title>Community Event</title>
+      <link rel="stylesheet" href="/static/css/nicepage.css" media="screen">
+      <link rel="stylesheet" href="/static/css/community_event.css" media="screen">
+      <script class="u-script" type="text/javascript" src="/static/js/jquery.js"></script>
+      <script class="u-script" type="text/javascript" src="/static/js/nicepage_admin.js"></script>
+      <link rel="icon" href="/static/images/favicon.ico">
+      <meta name="theme-color" content="#478ac9">
+      <meta property="og:title" content="community_event">
+      <meta property="og:description" content="">
+      <meta property="og:type" content="website">
+   </head>
+   <body class="u-body u-xl-mode" data-lang="en">
+      <header class="u-black u-clearfix u-header u-header" id="sec-d671">
+         <div class="u-clearfix u-sheet u-sheet-1">
+            <p class="u-align-left u-custom-font u-text u-text-body-alt-color u-text-1">
+               <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-alt-color u-btn-1" href="{{url_for('home')}}" data-page-id="89717531">MEDCOM</a>
+            </p>
+            {% include 'navbar.html' %}
+         </div>
+      </header>
+      <section class="u-black u-clearfix u-section-1" id="sec-b8b2">
+         <div class="u-align-left u-clearfix u-sheet u-sheet-1">
+            <div class="u-align-left u-border-2 u-border-grey-50 u-container-style u-expanded-width-sm u-expanded-width-xs u-group u-radius-11 u-shape-round u-group-1">
+               <div class="u-container-layout u-container-layout-1">
+                  <div class="u-align-center u-form u-form-1">
+                     <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;">
+                        {% if event %}
+                           {% if session['user']['level'] == 2 %}
+                           <input type="hidden" name="operation" value="approve_event">
+                           {% else%}
+                           <input type="hidden" name="operation" value="edit_event">
+                           {% endif %}
+                        {% endif %} 
+                        <div class="u-form-group u-form-group-1">
+                           <label for="text-7ea7" class="u-custom-font u-label u-label-1">Event Name</label>
+                           <input value="{{event['event_name']}}" type="text" placeholder="" id="text-7ea7" name="event_name" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-1" required="required" {% if session['user']['level'] == 2 %}readonly{% endif %}>
+                        </div>
+                        <div class="u-form-group u-form-partition-factor-3 u-form-group-2">
+                           <label for="text-59a6" class="u-custom-font u-label u-label-2">Event Location</label>
+                           <input value="{{event['event_location']}}" type="text" placeholder="" id="text-59a6" name="event_location" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-2" required="required" {% if session['user']['level'] == 2 %}readonly{% endif %}>
+                        </div>
+                        <div class="u-form-date u-form-group u-form-partition-factor-3 u-form-group-3">
+                           <label for="date-869a" class="u-custom-font u-label u-label-3">Date</label>
+                           <input value="{{event['event_date_1']}}" type="date" placeholder="MM/DD/YYYY" id="date-869a" name="event_date_1" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-3" required="required" {% if session['user']['level'] == 2 %}readonly{% endif %}>
+                        </div>
+                        <div class="u-form-group u-form-partition-factor-3 u-form-group-4">
+                           <label for="text-1046" class="u-custom-font u-label u-label-4">Hour</label>
+                           <input value="{{event['event_date_2']}}" type="text" id="text-1046" name="event_date_2" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-4" placeholder="This format = 14.58" required="required" {% if session['user']['level'] == 2 %}readonly{% endif %}>
+                        </div>
+                        <div class="u-form-group u-form-message u-form-group-5">
+                           <label for="message-744e" class="u-custom-font u-label u-label-5">Event Description</label>
+                           <textarea placeholder="Write a short description about the event" rows="4" cols="50" id="message-744e" name="event_description" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-5" required="required" {% if session['user']['level'] == 2 %}readonly{% endif %}>{{event['event_description']}}</textarea>
+                        </div>
+                        <div class="u-form-group u-form-partition-factor-2 u-form-group-6">
+                           <label for="text-2a4c" class="u-custom-font u-label u-label-6">Maximum Number of Participants</label>
+                           <input value="{{event['event_participants']}}" type="text" placeholder=" If there is no limit, leave this blank" id="text-2a4c" name="event_participants" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-6" {% if session['user']['level'] == 2 %}readonly{% endif %}>
+                        </div>
+                        <div class="u-form-group u-form-partition-factor-2 u-form-select u-form-group-7">
+                           <label for="select-3a33" class="u-custom-font u-label u-label-7">Community</label>
+                           <div class="u-form-select-wrapper">
+                              <select value="{{event['event_community']}}" id="select-3a33" name="event_community" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-7" required="required">
+                                {% for community in communities %}
+                                 <option value="{{community['_id']}}">{{community['name']}}</option>
+                                {% endfor %}
+                              </select>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret">
+                                 <path fill="currentColor" d="M4 8L0 4h8z"></path>
+                              </svg>
+                           </div>
+                        </div>
+                        <div class="u-form-agree u-form-group u-form-group-8">
+                           <input type="checkbox" id="agree-a6bf" name="event_status" class="u-agree-checkbox" {% if event['event_status'] == "on" %}checked{% endif %} {% if session['user']['level'] == 2 %}onclick="return false;"{% endif %}>
+                           <label for="agree-a6bf" class="u-custom-font u-label u-label-8">Make the event for the community only. If this box not checked, event will be public.</label>
+                        </div>
+                        <div class="u-align-left u-form-group u-form-submit u-form-group-9">
+                           {% if session['user']['level'] == 3 %}
+                           <a href="#" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-btn-1"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Publish&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br></a>
+                           {% elif session['user']['level'] == 2 %}
+                           <a href="#" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-btn-1"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Approve&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br></a>
+                           {% else %}
+                           <a href="#" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-btn-1"> Send to Supervisor<br></a>
+                           {% endif %}
+                           <input type="submit" value="submit" class="u-form-control-hidden">
+                        </div>
+                        <div class="u-form-send-message u-form-send-success" id="success_message-1"></div>
+                        <div class="u-form-send-error u-form-send-message" id="error_message-1"></div>
+                     </form>
+                  </div>
+                  
+                  {% if event %}
+                  <div class="u-form u-form-2">
+                     <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;">
+                           {% if session['user']['level'] == 2 %}
+                           <input type="hidden" name="operation" value="decline_event">
+                           {% else%}
+                           <input type="hidden" name="operation" value="delete_event">
+                           {% endif %}
+                           <div class="u-align-right u-form-group u-form-submit u-form-group-10">
+                           {% if session['user']['level'] in [1,3] %}
+                           <a href="#" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-text-custom-color-4 u-text-hover-custom-color-4 u-btn-2">Delete Event<br></a>
+                           {% elif session['user']['level'] in [2] %}
+                           <a href="#" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-text-custom-color-4 u-text-hover-custom-color-4 u-btn-2">Decline Event<br></a>
+                           {% endif %}
+                           <input type="submit" value="submit" class="u-form-control-hidden">
+                        </div>
+                        <div class="u-form-send-message u-form-send-success" id="success_message-2"></div>
+                        <div class="u-form-send-error u-form-send-message" id="error_message-2"></div>
+                     </form>
+                  </div>
+                  {% endif %}
+
+               </div>
+            </div>
+            <div class="u-align-left u-border-2 u-border-grey-50 u-container-style u-expanded-width-sm u-expanded-width-xs u-group u-radius-11 u-shape-round u-group-2">
+               <div class="u-container-layout u-valign-bottom-sm u-valign-bottom-xs u-container-layout-2">
+                  <p class="u-align-left u-custom-font u-text u-text-1">
+                     <span class="u-text-custom-color-3">Event Status :</span> {{event['status']|title}}<br><span class="u-text-custom-color-3">Supervisor Activity :</span>{% if event['status']=='requested' %} No supervisor has yet approved this event.{% endif %}<br>
+                  </p>
+                  <p class="u-align-left u-custom-font u-text u-text-2">Last Events :</p>
+                  <div class="black border border-collapse border-radius px separate solid table u-align-center u-table u-table-responsive u-table-1">
+                     <table class="u-table-entity">
+                        <colgroup>
+                           <col width="88%">
+                           <col width="12%">
+                        </colgroup>
+                        <tbody class="u-table-alt-custom-color-2 u-table-body">
+                            {% for event in events %}
+                           <tr style="height: 45px;">
+                              <td class="u-align-center u-custom-font u-table-cell u-table-cell-1">{{event['event_name'][:19]}}</td>
+                              <td class="u-align-center u-custom-font u-table-cell u-table-cell-2"><a href={{event['_id']}}>{% if session['user']['level'] == 2 %}Manage{% else %}Edit{% endif %}</a></td>
+                           </tr>
+                            {% endfor %}
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            
+            {% if participants %}
+            <p class="u-custom-font u-text u-text-default u-text-3">Participants</p>
+            <div class="black border border-collapse border-radius px separate solid table u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-table u-table-responsive u-table-2">
+              <table class="u-table-entity">
+                <colgroup>
+                  <col width="25.1%">
+                  <col width="25%">
+                  <col width="25.1%">
+                  <col width="24.8%">
+                </colgroup>
+                <tbody class="u-custom-font u-table-alt-custom-color-2 u-table-body u-table-body-2">
+                  {% for participant in participants %}
+                  <tr style="height: 43px;">
+                    <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-21">{{participant['_id']}}</td>
+                    <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-22">{{participant['email']}}</td>
+                    <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-23">{{participant['first_name']}}, {{participant['last_name']}}</td>
+                    <td class="u-align-center u-border-2 u-border-grey-90 u-custom-font u-table-cell u-table-cell-24">Verified</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            {% endif %}
+         </div>
+      </section>
+      <footer class="u-align-center u-black u-clearfix u-footer u-footer" id="sec-7d01">
+         <div class="u-align-left u-clearfix u-sheet u-sheet-1"></div>
+      </footer>
+   </body>
+</html>

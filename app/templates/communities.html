@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <title>Communities</title>
+      <link rel="stylesheet" href="/static/css/nicepage.css" media="screen">
+      <link rel="stylesheet" href="/static/css/communities.css" media="screen">
+      <script class="u-script" type="text/javascript" src="/static/js/jquery.js"></script>
+      <script class="u-script" type="text/javascript" src="/static/js/nicepage.js"></script>
+      <link rel="icon" href="/static/images/favicon.ico">
+      <meta name="theme-color" content="#478ac9">
+      <meta property="og:title" content="communities">
+      <meta property="og:description" content="">
+      <meta property="og:type" content="website">
+   </head>
+   <body class="u-black u-body u-xl-mode" data-lang="en">
+      <header class="u-black u-clearfix u-header u-header" id="sec-d671">
+         <div class="u-clearfix u-sheet u-sheet-1">
+            <p class="u-align-left u-custom-font u-text u-text-body-alt-color u-text-1">
+               <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-alt-color u-btn-1" href="{{url_for('home')}}" data-page-id="89717531">MEDCOM</a>
+            </p>
+            {% include 'navbar.html' %}
+         </div>
+      </header>
+      <section class="u-black u-clearfix u-section-1" id="sec-b13b">
+         <div class="u-align-left u-clearfix u-sheet u-sheet-1">
+          
+          {% for community_group in communities  %}
+            <div class="u-border-2 u-border-grey-40 u-container-style u-expanded-width-xs u-group u-radius-11 u-shape-round u-group-1">
+               <div class="u-container-layout u-valign-middle-xl u-container-layout-1">
+                  <p class="u-custom-font u-text u-text-1">{{community_group[0]['name']}}</p>
+                  <a href="{{url_for('community', community_id=community_group[0]['_id'])}}" class="u-border-2 u-border-white u-btn u-btn-round u-button-style u-custom-font u-hover-white u-none u-radius-5 u-btn-1">Community Page</a>
+                  <p class="u-custom-font u-text u-text-2">
+                     <span class="u-text-custom-color-3">Area :</span>&nbsp;{{community_group[0]['department']}}
+                  </p>
+               </div>
+            </div>
+            
+            {% if community_group[1] %}
+            <div class="u-border-2 u-border-grey-40 u-container-style u-expanded-width-xs u-group u-radius-11 u-shape-round u-group-2">
+               <div class="u-container-layout u-valign-middle-xl u-container-layout-2">
+                  <p class="u-custom-font u-text u-text-3">{{community_group[1]['name']}}</p>
+                  <a href="{{url_for('community', community_id=community_group[1]['_id'])}}" class="u-border-2 u-border-white u-btn u-btn-round u-button-style u-custom-font u-hover-white u-none u-radius-5 u-btn-2">Community Page</a>
+                  <p class="u-custom-font u-text u-text-4">
+                     <span class="u-text-custom-color-3">Area :</span>&nbsp;{{community_group[1]['department']}}
+                  </p>
+               </div>
+            </div>
+            {% endif %}
+              
+
+          {% endfor %}
+         </div>
+      </section>
+      <footer class="u-align-center u-black u-clearfix u-footer u-footer" id="sec-7d01">
+         <div class="u-align-left u-clearfix u-sheet u-sheet-1"></div>
+      </footer>
+   </body>
+</html>

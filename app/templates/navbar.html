@@ -1,0 +1,126 @@
+{% if not session['logged_in'] %}
+<nav class="u-menu u-menu-dropdown u-menu-open-right u-offcanvas u-menu-1" data-submenu-level="on-click" data-responsive-from="MD">
+  <div class="menu-collapse u-custom-font" style="font-size: 1rem; letter-spacing: 0px; font-weight: 700; font-family: Purista-SemiBold;">
+     <a class="u-button-style u-custom-border u-custom-border-color u-custom-borders u-custom-left-right-menu-spacing u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-file-icon u-nav-link u-text-white u-file-icon-1" href="#">
+     <img src="/static/images/56763.png" alt="">
+     </a>
+  </div>
+  <div class="u-custom-menu u-nav-container">
+     <ul class="u-custom-font u-nav u-spacing-20 u-unstyled u-nav-1">
+
+        <li class="u-nav-item"><a href="{{url_for('community', community_id='all')}}" class="u-button-style u-nav-link u-text-active-white u-text-body-alt-color u-text-hover-white" style="padding: 10px;">Communities</a></li>
+        <li class="u-nav-item"><a href="{{url_for('register')}}" class="u-button-style u-nav-link u-text-active-white u-text-body-alt-color u-text-hover-white" style="padding: 10px;">Register</a></li>
+        <li class="u-nav-item"><a href="{{url_for('login')}}" class="u-button-style u-nav-link u-text-active-white u-text-body-alt-color u-text-hover-white" style="padding: 10px;">Login</a></li>
+     </ul>
+  </div>
+  <div class="u-custom-menu u-nav-container-collapse">
+     <div class="u-black u-container-style u-inner-container-layout u-sidenav">
+        <div class="u-inner-container-layout u-sidenav-overflow">
+           <div class="u-menu-close"></div>
+           <ul class="u-align-center u-custom-font u-nav u-popupmenu-items u-spacing-0 u-text-active-white u-unstyled u-nav-5">
+              <li class="u-nav-item"><a href="{{url_for('community', community_id='all')}}" class="u-button-style u-nav-link">Communities</a></li>
+              <li class="u-nav-item"><a href="{{url_for('register')}}" class="u-button-style u-nav-link">Register</a></li>
+              <li class="u-nav-item"><a href="{{url_for('login')}}" class="u-button-style u-nav-link">Login</a></li>
+           </ul>
+        </div>
+     </div>
+     <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+  </div>
+</nav>
+{% else %}
+
+
+
+
+
+<nav class="u-menu u-menu-dropdown u-menu-open-right u-offcanvas u-menu-1" data-submenu-level="on-click" data-responsive-from="MD">
+  <div class="menu-collapse u-custom-font" style="font-size: 1rem; letter-spacing: 0px; font-weight: 700; font-family: Purista-SemiBold;">
+     <a class="u-button-style u-custom-border u-custom-border-color u-custom-borders u-custom-left-right-menu-spacing u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-file-icon u-nav-link u-text-white u-file-icon-1" href="#">
+     <img src="/static/images/56763.png" alt="">
+     </a>
+  </div>
+  <div class="u-custom-menu u-nav-container">
+     <ul class="u-custom-font u-nav u-spacing-20 u-unstyled u-nav-1">
+        <li class="u-nav-item"><a href="{{url_for('community', community_id='all')}}" class="u-button-style u-nav-link u-text-active-white u-text-body-alt-color u-text-hover-white" style="padding: 10px;">Communities</a></li>
+        
+        {% if session['user']['level'] in [1,3] %}
+        <li class="u-nav-item">
+           <a class="u-button-style u-nav-link u-text-active-white u-text-body-alt-color u-text-hover-white" href="#" style="padding: 10px;">Community Operations</a>
+           <div class="u-nav-popup">
+              <ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10">
+                <li class="u-nav-item"><a href="{{url_for('community_event', event_id='create_event')}}" class="u-button-style u-nav-link u-white">Event Creator</a></li>
+                <li class="u-nav-item"><a href="{{url_for('dashboard_admin_community_manager', page=1)}}" class="u-button-style u-nav-link u-white">Community Manager</a></li>
+              </ul>
+           </div>
+        </li>
+        {% endif %}
+
+        {% if session['user']['level'] in [2,3] %}
+        <li class="u-nav-item">
+           <a class="u-button-style u-nav-link u-text-active-white u-text-body-alt-color u-text-hover-white" style="padding: 10px;">Supervisor</a>
+           <div class="u-nav-popup">
+              <ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10">
+                 <li class="u-nav-item"><a href="{{url_for('community_requests')}}" class="u-button-style u-nav-link u-white">Community Requests</a></li>
+                 <li class="u-nav-item"><a href="{{url_for('dashboard_admin_user', page=1)}}" class="u-button-style u-nav-link u-white">User Manager</a></li>
+              </ul>
+           </div>
+        </li>
+        {% endif %}
+        
+        {% if session['user']['level'] in [3] %}
+        <li class="u-nav-item"><a href="{{url_for('dashboard_admin_manager')}}" class="u-button-style u-nav-link u-text-active-white u-text-body-alt-color u-text-hover-white" style="padding: 10px;">Manager</a></li>
+        {% endif %}
+        <li class="u-nav-item"><a href="{{url_for('profile')}}" class="u-button-style u-nav-link u-text-active-white u-text-body-alt-color u-text-hover-white" style="padding: 10px;">Profile</a></li>
+     </ul>
+  </div>
+  
+  
+  
+  
+  <div class="u-custom-menu u-nav-container-collapse">
+     <div class="u-black u-container-style u-inner-container-layout u-sidenav">
+        <div class="u-inner-container-layout u-sidenav-overflow">
+           <div class="u-menu-close"></div>
+           <ul class="u-align-center u-custom-font u-nav u-popupmenu-items u-spacing-0 u-text-active-white u-unstyled u-nav-5">
+              <li class="u-nav-item"><a href="{{url_for('community', community_id='all')}}" class="u-button-style u-nav-link">Communities</a></li>
+              
+              {% if session['user']['level'] in [1,3] %}
+              <li class="u-nav-item">
+                 <a class="u-button-style u-nav-link" href="#">Community Operations</a>
+                 <div class="u-nav-popup">
+                    <ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10">
+                       <li class="u-nav-item"><a href="{{url_for('community_event', event_id='create_event')}}" class="u-button-style u-nav-link">Event Creator</a></li>
+                       <li class="u-nav-item"><a href="{{url_for('dashboard_admin_community_manager', page=1)}}" class="u-button-style u-nav-link">Community Manager</a></li>
+                    </ul>
+                 </div>
+              </li>
+              {% endif %}
+            
+              {% if session['user']['level'] in [2,3] %}
+              <li class="u-nav-item">
+                 <a class="u-button-style u-nav-link">Supervisor</a>
+                 <div class="u-nav-popup">
+                    <ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10">
+                       <li class="u-nav-item"><a href="{{url_for('community_requests')}}" class="u-button-style u-nav-link">Community Requests</a></li>
+                       <li class="u-nav-item"><a href="{{url_for('dashboard_admin_user', page=1)}}" class="u-button-style u-nav-link">User Manager</a></li>
+                    </ul>
+                 </div>
+              </li>
+              {% endif %}
+
+              {% if session['user']['level'] in [3] %}
+              <li class="u-nav-item"><a href="{{url_for('dashboard_admin_manager')}}" class="u-button-style u-nav-link">Manager</a></li>
+              {% endif %}
+              
+              <li class="u-nav-item"><a href="{{url_for('profile')}}" class="u-button-style u-nav-link">Profile</a></li>
+           </ul>
+        </div>
+     </div>
+     <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+  </div>
+</nav>
+
+
+
+
+{% endif %}

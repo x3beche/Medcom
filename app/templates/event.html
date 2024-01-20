@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <title>Event</title>
+      <link rel="stylesheet" href="/static/css/nicepage.css" media="screen">
+      <link rel="stylesheet" href="/static/css/event.css" media="screen">
+      <script class="u-script" type="text/javascript" src="/static/js/jquery.js"></script>
+      <script class="u-script" type="text/javascript" src="/static/js/nicepage.js"></script>
+      <link rel="icon" href="/static/images/favicon.ico">
+
+      <meta name="theme-color" content="#478ac9">
+      <meta property="og:title" content="event">
+      <meta property="og:description" content="">
+      <meta property="og:type" content="website">
+   </head>
+   <body class="u-body u-xl-mode" data-lang="en">
+      <header class="u-black u-clearfix u-header u-header" id="sec-d671">
+         <div class="u-clearfix u-sheet u-sheet-1">
+            <p class="u-align-left u-custom-font u-text u-text-body-alt-color u-text-1">
+               <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-alt-color u-btn-1" href="{{url_for('home')}}" data-page-id="89717531">MEDCOM</a>
+            </p>
+            {% include 'navbar.html' %}
+         </div>
+      </header>
+      <section class="u-black u-clearfix u-section-1" id="sec-b8b2">
+         <div class="u-align-left u-clearfix u-sheet u-valign-middle-lg u-sheet-1">
+            <div class="u-align-left u-border-2 u-border-grey-50 u-container-style u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-radius-11 u-shape-round u-group-1">
+               <div class="u-container-layout u-valign-middle-xs u-container-layout-1">
+                  <p class="u-custom-font u-text u-text-1">
+                     <span style="font-size: 1.5rem;">{{ event['event_name' ]}}</span>
+                     <br>
+                     <br>{{ event['event_description' ]}}<br>
+                  </p>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="u-black u-clearfix u-section-2" id="sec-d41b">
+         <div class="u-clearfix u-sheet u-valign-middle-sm u-sheet-1">
+            <div class="u-align-center-md u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-xl u-border-2 u-border-grey-50 u-container-style u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-radius-11 u-shape-round u-group-1">
+               <div class="u-container-layout u-container-layout-1">
+                  <div class="u-align-left u-border-2 u-border-grey-50 u-container-style u-group u-radius-11 u-shape-round u-group-2">
+                     <div class="u-container-layout u-container-layout-2">
+                        <p class="u-align-center u-custom-font u-text u-text-1">Register For Event<br>
+                        </p>
+                        <div class="u-form u-form-1">
+                           <form action="#user" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="REGISTER" style="padding: 10px;">
+                              <input type="hidden" name="operation" value="register">
+                              <div class="u-align-center u-form-group u-form-submit u-form-group-1">
+                                {% if session %}
+                                
+                                {% if session['user']['_id'] in event['subscribers'] %}
+                                <a href="#" id="event_button" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-text-hover-black u-text-white u-btn-1">Cancel Registration<br></a>
+                                {% else %}
+                                <a href="#" id="event_button" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-text-hover-black u-text-white u-btn-1">Register Event<br></a>
+                                {% endif %}
+                                
+                                {% else %}
+                                <a href="#" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-text-hover-black u-text-white u-btn-1">Login For Register<br></a>
+                                {% endif %}
+
+                                <input type="submit" value="submit" class="u-form-control-hidden">
+                              </div>
+                              <div class="u-form-send-message u-form-send-success" id="success_message"></div>
+                              <div class="u-form-send-error u-form-send-message" id="error_message"></div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+                  <p class="u-custom-font u-text u-text-2">
+                     <span style="font-size: 1.25rem;">Event Details</span>
+                     <br>Location : <span class="u-text-custom-color-3">{{ event['event_location' ]}}</span><br>Date : <span class="u-text-custom-color-3">{{ event['event_date' ]|cctime }}</span>&nbsp;<br>Mail : <span class="u-text-custom-color-3">{{community['communication']}}</span>
+                     <br>
+                  </p>
+               </div>
+            </div>
+         </div>
+      </section>
+      <footer class="u-align-center u-black u-clearfix u-footer u-footer" id="sec-7d01">
+         <div class="u-align-left u-clearfix u-sheet u-sheet-1"></div>
+      </footer>
+   </body>
+</html>

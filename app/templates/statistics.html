@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <title>MEDCOM Statistics</title>
+      <link rel="stylesheet" href="/static/css/nicepage.css" media="screen">
+      <link rel="stylesheet" href="/static/css/statistics.css" media="screen">
+      <script class="u-script" type="text/javascript" src="/static/js/jquery.js" defer=""></script>
+      <script class="u-script" type="text/javascript" src="/static/js/nicepage.js" defer=""></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+      <link rel="icon" href="/static/images/favicon.ico">
+      <meta name="theme-color" content="#478ac9">
+      <meta property="og:title" content="MEDCOM Statistics">
+      <meta property="og:description" content="">
+      <meta property="og:type" content="website">
+   </head>
+   <body class="u-black u-body u-xl-mode" data-lang="en">
+      <header class="u-black u-clearfix u-header u-header" id="sec-d671">
+         <div class="u-clearfix u-sheet u-sheet-1">
+            <p class="u-align-left u-custom-font u-text u-text-body-alt-color u-text-1">
+               <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-alt-color u-btn-1" href="{{url_for('home')}}" data-page-id="89717531">MEDCOM</a>
+            </p>
+            {% include 'navbar.html' %}
+         </div>
+      </header>
+      <section class="u-black u-clearfix u-section-1" id="sec-1cde">
+         <div class="u-clearfix u-sheet u-sheet-1">
+            <div class="u-border-2 u-border-grey-50 u-container-style u-expanded-width-sm u-expanded-width-xs u-grey-10 u-group u-opacity u-opacity-0 u-radius-11 u-shape-round u-group-1">
+               <div class="u-container-layout u-container-layout-1"></div>
+            </div>
+            <div class="u-clearfix u-expanded-width-sm u-expanded-width-xs u-gutter-10 u-layout-wrap u-layout-wrap-1">
+               <div class="u-layout" style="">
+                  <div class="u-layout-row" style="">
+                     <div class="u-container-style u-layout-cell u-left-cell u-size-25-lg u-size-25-xl u-size-30-md u-size-30-sm u-size-30-xs u-size-xs-60 u-layout-cell-1" src="">
+                        <div class="u-container-layout u-valign-bottom-xs u-container-layout-2">
+                           <h4 class="u-align-center u-custom-font u-text u-text-1">
+                              <span class="u-text-body-alt-color"> What is done in the communities?</span>
+                              <br>
+                           </h4>
+                           <p class="u-align-center u-custom-font u-text u-text-2">Students can prepare for competitions and organize events by cooperating with each other. You can click on the boxes at main page to get more specific information about each community.</p>
+                        </div>
+                     </div>
+                     <div class="u-container-style u-layout-cell u-radius-11 u-right-cell u-size-30-md u-size-30-sm u-size-30-xs u-size-35-lg u-size-35-xl u-size-xs-60 u-layout-cell-2" src="">
+                        <div class="u-container-layout u-container-layout-3" src="">
+                           <div class="u-clearfix u-custom-html u-custom-html-1">
+                              <canvas id="line-chart" width="800" height="450"></canvas>
+                              <script> new Chart(document.getElementById("line-chart"), {
+                                 type: 'line',
+                                 data: {
+                                   labels: [2019,2020,2021,2022],
+                                  
+                                 datasets: [{ 
+                                       data: [23,56,78,156],
+                                       label: "Participans",
+                                       borderColor: "#27eb98",
+                                       fill: false
+                                       },{ 
+                                 data: [2,7,14,25],
+                                 label: "Activities",
+                                 borderColor: "#fb3d60",
+                                 fill: false 
+                                 },{ 
+                                 data: [12,16,20,45],
+                                 label: "Members",
+                                 borderColor: "#6b91fc",
+                                 fill: false 
+                                 }
+                                 	   
+                                 	   
+                                 	   
+                                   ]
+                                 },
+                                 options: {
+                                   title: {
+                                     display: true
+                                   }
+                                 }
+                                 }); 
+                              </script>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="u-black u-clearfix u-section-2" id="carousel_a93a">
+         <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-xl u-sheet-1">
+            <div class="u-border-2 u-border-grey-50 u-container-style u-expanded-width-sm u-expanded-width-xs u-grey-10 u-group u-opacity u-opacity-0 u-radius-11 u-shape-round u-group-1">
+               <div class="u-container-layout u-container-layout-1"></div>
+            </div>
+            <div class="u-clearfix u-expanded-width-sm u-expanded-width-xs u-gutter-10 u-layout-wrap u-layout-wrap-1">
+               <div class="u-layout" style="">
+                  <div class="u-layout-row" style="">
+                     <div class="u-container-style u-layout-cell u-left-cell u-size-25-lg u-size-25-xl u-size-27-md u-size-27-sm u-size-27-xs u-size-xs-60 u-layout-cell-1" src="">
+                        <div class="u-container-layout u-container-layout-2">
+                           <h4 class="u-align-center u-custom-font u-text u-text-1">
+                              <span class="u-text-body-alt-color"> What does MEDCOM do?</span>
+                              <br>
+                           </h4>
+                           <p class="u-align-center u-custom-font u-text u-text-2"> MEDCOM enables Istanbul Medipol University engineering communities to be followed from a single point and to distribute important announcements concerning the communities. Apart from that, it allows teams to collaborate by keeping records of their announcements, statistics and activities.</p>
+                        </div>
+                     </div>
+                     <div class="u-container-style u-layout-cell u-radius-11 u-right-cell u-size-33-md u-size-33-sm u-size-33-xs u-size-35-lg u-size-35-xl u-size-xs-60 u-layout-cell-2" src="">
+                        <div class="u-container-layout u-valign-top-sm u-container-layout-3" src="">
+                           <div class="u-clearfix u-custom-html u-custom-html-1">
+                              <canvas id="line-chart-2" width="800" height="450"></canvas>
+                              <script> new Chart(document.getElementById("line-chart-2"), {
+                                 type: 'line',
+                                 data: {
+                                   labels: [2020,2021,2022],
+                                  
+                                 datasets: [{ 
+                                       data: [124,622,1462],
+                                       label: "Mail",
+                                       borderColor: "#27eb98",
+                                       fill: false
+                                       },{ 
+                                 data: [782,1252,2621],
+                                 label: "Visit",
+                                 borderColor: "#fb3d60",
+                                 fill: false 
+                                 },{ 
+                                 data: [12,25,43],
+                                 label: "New Register",
+                                 borderColor: "#6b91fc",
+                                 fill: false 
+                                 }
+                                 	   	   
+                                   ]
+                                 },
+                                 options: {
+                                   title: {
+                                     display: true
+                                   }
+                                 }
+                                 }); 
+                              </script>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <footer class="u-align-center u-black u-clearfix u-footer u-footer" id="sec-7d01">
+         <div class="u-align-left u-clearfix u-sheet u-sheet-1"></div>
+      </footer>
+   </body>
+</html>

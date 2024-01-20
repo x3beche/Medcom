@@ -1,0 +1,254 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 67px;
+}
+
+.u-section-1 .u-table-1 {
+  width: 1098px;
+  margin: 0 auto 14px;
+}
+
+.u-block-244f-6 {
+  border-style: dotted;
+}
+
+.u-block-244f-10 {
+  height: 47px;
+}
+
+.u-section-1 .u-table-cell-1 {
+  font-family: Purista-SemiBold;
+}
+
+.u-section-1 .u-table-cell-2 {
+  font-family: logo;
+  font-size: 1.125rem;
+  line-height: 0.8;
+}
+
+.u-section-1 .u-table-cell-3 {
+  font-family: logo;
+  font-size: 1.125rem;
+}
+
+.u-section-1 .u-table-cell-4 {
+  font-family: Purista-SemiBold;
+}
+
+.u-section-1 .u-table-cell-5 {
+  font-family: Purista-SemiBold;
+}
+
+.u-block-244f-65 {
+  height: 46px;
+}
+
+.u-block-244f-66 {
+  border-style: dotted;
+}
+
+.u-block-244f-67 {
+  border-style: dotted;
+}
+
+.u-block-244f-68 {
+  border-style: dotted;
+}
+
+.u-block-244f-69 {
+  border-style: dotted;
+}
+
+.u-block-244f-77 {
+  border-style: dotted;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-table-1 {
+    margin-right: initial;
+    margin-left: initial;
+    width: auto;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 110px;
+  }
+
+  .u-section-1 .u-table-1 {
+    margin-bottom: 40px;
+    width: auto;
+    margin-right: initial;
+    margin-left: initial;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 184px;
+  }
+
+  .u-section-1 .u-table-1 {
+    margin-bottom: 30px;
+    width: auto;
+    margin-right: initial;
+    margin-left: initial;
+  }
+}.u-section-2 .u-sheet-1 {
+  min-height: 382px;
+}
+
+.u-section-2 .u-group-1 {
+  width: 1102px;
+  min-height: 305px;
+  margin: 59px auto 18px;
+}
+
+.u-section-2 .u-container-layout-1 {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 22px;
+}
+
+.u-section-2 .u-text-1 {
+  font-family: Purista-SemiBold;
+  margin: 21px 889px 0 0;
+}
+
+.u-section-2 .u-text-2 {
+  font-family: Purista-SemiBold;
+  margin: 6px 151px 0 0;
+}
+
+.u-section-2 .u-text-3 {
+  font-family: Purista-SemiBold;
+  margin: 21px 879px 0 0;
+}
+
+.u-section-2 .u-text-4 {
+  font-family: Purista-SemiBold;
+  margin: 6px 151px 0 0;
+}
+
+.u-section-2 .u-text-5 {
+  font-family: Purista-SemiBold;
+  margin: 18px 931px 0 0;
+}
+
+.u-section-2 .u-text-6 {
+  font-family: Purista-SemiBold;
+  margin: 6px 151px 0 0;
+}
+
+@media (max-width: 1199px) {
+  .u-section-2 .u-group-1 {
+    width: 940px;
+  }
+
+  .u-section-2 .u-text-1 {
+    margin-right: 727px;
+  }
+
+  .u-section-2 .u-text-2 {
+    margin-right: 0;
+  }
+
+  .u-section-2 .u-text-3 {
+    margin-right: 717px;
+  }
+
+  .u-section-2 .u-text-4 {
+    margin-right: 0;
+  }
+
+  .u-section-2 .u-text-5 {
+    margin-right: 769px;
+  }
+
+  .u-section-2 .u-text-6 {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-2 .u-sheet-1 {
+    min-height: 392px;
+  }
+
+  .u-section-2 .u-group-1 {
+    min-height: 332px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: initial;
+    margin-left: initial;
+    width: auto;
+  }
+
+  .u-section-2 .u-container-layout-1 {
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+
+  .u-section-2 .u-text-1 {
+    margin-right: 507px;
+  }
+
+  .u-section-2 .u-text-3 {
+    margin-right: 497px;
+  }
+
+  .u-section-2 .u-text-5 {
+    margin-right: 549px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-2 .u-sheet-1 {
+    min-height: 414px;
+  }
+
+  .u-section-2 .u-container-layout-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-2 .u-text-1 {
+    margin-right: 367px;
+  }
+
+  .u-section-2 .u-text-3 {
+    margin-right: 357px;
+  }
+
+  .u-section-2 .u-text-5 {
+    margin-right: 409px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-2 .u-sheet-1 {
+    min-height: 456px;
+  }
+
+  .u-section-2 .u-text-1 {
+    margin-right: 167px;
+  }
+
+  .u-section-2 .u-text-3 {
+    margin-right: 157px;
+  }
+
+  .u-section-2 .u-text-5 {
+    margin-right: 209px;
+  }
+}@font-face {
+  font-family: 'Purista-SemiBold';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/static/fonts/Purista-SemiBold.ttf);
+}@font-face {
+  font-family: 'logo';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/static/fonts/logo.otf);
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <title>MEDCOM Register</title>
+      <link rel="stylesheet" href="/static/css/nicepage.css" media="screen">
+      <link rel="stylesheet" href="/static/css/register.css" media="screen">
+      <script class="u-script" type="text/javascript" src="/static/js/jquery.js" defer=""></script>
+      <script class="u-script" type="text/javascript" src="/static/js/nicepage.js" defer=""></script>
+      <link rel="icon" href="/static/images/favicon.ico">
+      <meta name="theme-color" content="#478ac9">
+      <meta property="og:title" content="MEDCOM Register">
+      <meta property="og:description" content="">
+      <meta property="og:type" content="website">
+   </head>
+   <body class="u-body u-xl-mode" data-lang="en">
+      <header class="u-black u-clearfix u-header u-header" id="sec-d671">
+         <div class="u-clearfix u-sheet u-sheet-1">
+            <p class="u-align-left u-custom-font u-text u-text-body-alt-color u-text-1">
+               <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-alt-color u-btn-1" href="{{url_for('home')}}" data-page-id="89717531">MEDCOM</a>
+            </p>
+            {% include 'navbar.html' %}
+         </div>
+      </header>
+      <section class="u-black u-clearfix u-section-1" id="sec-68af">
+         <div class="u-align-left u-clearfix u-sheet u-valign-middle-xl u-sheet-1">
+            <div class="u-border-2 u-border-grey-50 u-container-style u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-radius-11 u-shape-round u-group-1">
+               <div class="u-container-layout u-container-layout-1">
+                  <h4 class="u-align-left u-custom-font u-text u-text-1"> User Registration Area</h4>
+                  <div class="u-form u-form-1">
+                     <form class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" source="custom" name="signup_form" style="padding: 10px;">
+                        <div class="u-form-group u-form-partition-factor-2 u-form-group-1">
+                           <label for="text-5882" class="u-custom-font u-label u-label-1">Name</label>
+                           <input type="text" placeholder="First" id="text-5882" name="first_name" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-1" required="required">
+                        </div>
+                        <div class="u-form-group u-form-partition-factor-2 u-form-group-2">
+                           <label for="text-32db" class="u-custom-font u-form-control-hidden u-label u-label-2"></label>
+                           <input type="text" placeholder="Last" id="text-32db" name="last_name" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-2" required="required">
+                        </div>
+                        <div class="u-form-email u-form-group u-form-group-3">
+                           <label for="email-8f4e" class="u-custom-font u-label u-label-3">Email</label>
+                           <input type="email" placeholder="Enter your student mail" id="email-8f4e" name="email" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-3" required="" maxlength="100">
+                        </div>
+                        <div class="u-form-group u-form-partition-factor-2 u-form-group-4">
+                           <label for="text-7ea7" class="u-custom-font u-label u-label-4">Password</label>
+                           <input type="password" placeholder="" id="text-7ea7" name="pass1" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-4" required="required">
+                        </div>
+                        <div class="u-form-group u-form-partition-factor-2 u-form-group-5">
+                           <label for="text-c1d1" class="u-custom-font u-label u-label-5">Confirm Password</label>
+                           <input type="password" placeholder="" id="text-c1d1" name="pass2" class="u-border-1 u-border-grey-80 u-custom-font u-input u-input-rectangle u-radius-4 u-white u-input-5" required="required">
+                        </div>
+                        <div class="u-align-left u-form-group u-form-submit">
+                           <a href="#" class="u-black u-border-2 u-border-white u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-hover-white u-radius-5 u-btn-1">Register</a>
+                           <input type="submit" value="submit" class="u-form-control-hidden">
+                        </div>
+                        
+                        <div class="u-form-send-message u-form-send-success" id="success_message">Confirm</div>
+                        <div class="u-form-send-error u-form-send-message" id="error_message">Error</div>
+                     </form>
+                  </div>
+                  <p class="u-align-center u-custom-font u-text u-text-2"> With this registration, you will automatically receive announcements and notifications from the engineering communities, you can come back at any time to deactivate your ​​subscription. Do not forget to send an e-mail to MEDCOM in any problem.</p>
+                  <p class="u-align-center-sm u-align-center-xs u-custom-font u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-3"> This site is protected by reCAPTCHA and the Google&nbsp;<a href="https://policies.google.com/privacy" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2">Privacy Policy</a>&nbsp;and&nbsp;<a href="https://policies.google.com/terms" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3">Terms of Service</a>&nbsp;apply.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </section>
+      <footer class="u-align-center u-black u-clearfix u-footer u-footer" id="sec-7d01">
+         <div class="u-align-left u-clearfix u-sheet u-sheet-1"></div>
+      </footer>
+   </body>
+</html>

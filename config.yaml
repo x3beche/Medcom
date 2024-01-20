@@ -1,0 +1,16 @@
+domain: http://localhost/
+version: v1.0.1
+secret_key: "enter_something_secret"
+mail_server: smtp.gmail.com
+mail_port: 587
+mail_tls_status: True
+mail_username: example@gmail.com
+mail_password: enter_your_password
+mongodb: mongodb://localhost:27017
+member_level: 0
+community_level: 1
+supervisor_level: 2
+admin_level: 3
+host: 0.0.0.0
+port: 80
+debug_status: True
