@@ -7,8 +7,8 @@ MEDCOM ensures that engineering communities are monitored from a single point an
 # Communities Page
 ![Communities Page](https://raw.githubusercontent.com/x3beche/medcom/main/example_images/Screenshot%202024-01-20%20143158.png)
 
-# Communities Manager
-![Communities Manager](https://raw.githubusercontent.com/x3beche/medcom/main/example_images/Screenshot%202024-01-20%20144218.png)
+# Communities Managerhttps://github.com/x3beche/medcom/blob/main/README.md
+![Communities Manager](https://raw.githubusercontent.com/x3beche/medcom/main/example_images/Screenshot%202024-01-20%20142518.png)
 
 # Community Page
 ![Community Page](https://raw.githubusercontent.com/x3beche/medcom/main/example_images/Screenshot%202024-01-20%20142628.png)
